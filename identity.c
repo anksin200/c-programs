@@ -1,35 +1,42 @@
 #include<stdio.h>
+#include<math.h>
 
-int main(){
-int i,j,row,column,c=1;
-printf("Enter the number of row\n");
-scanf("%d%d",&row,&column);
-int a[5][5],b[5][5];
-printf("Enter the elements of matrix\n");
-for(i=0;i<row;i++)
+int main()
 {
-    for(j=0;j<column;j++)
-{
-    scanf("%d",&a[i][j]);
-}
-}
-for(i=0;i<row;i++)
-{
-    for(j=0;j<column;j++)
+    int a[3][3],f=0;
+    printf("enter the value in matrices ");
+    for(int i=0;i<3;i++)
     {
- if(i=j&&a[i][j]!=1&&a[j][i]!=0)
-    c++;
-    break;
+        for(int j=0;j<3;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
     }
-}
-if(c==1)
-{
-printf("identity matrix\n");
-}
-else{
-
-
-    printf("not identity matrix\n");
-}
-return 0;
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            if(i==j)
+            {
+                if(a[i][j]!=1)
+                {
+                    f=1;
+                    break;
+                }
+            }
+            else if(a[i][j]!=0){
+                f=1;
+            }
+            
+        }
+    }
+    if(f==0)
+    {
+        printf("identity");
+    }
+    else
+    {
+        printf("not identity");
+    }
+    return 0;
 }
